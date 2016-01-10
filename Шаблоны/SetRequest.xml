@@ -1,0 +1,161 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:smev="http://smev.gosuslugi.ru/#VERSION#"
+                  xmlns:soc="http://socit.ru"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+                  xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <soapenv:Body wsu:Id="body">
+    <soc:SetRequest>
+      <smev:Message>
+        <smev:Sender>
+          <smev:Code>#SND_CODE#</smev:Code>
+          <smev:Name>#SND_NAME#</smev:Name>
+        </smev:Sender>
+        <smev:Recipient>
+          <smev:Code>#SND_CODE#</smev:Code>
+          <smev:Name>#SND_NAME#</smev:Name>
+        </smev:Recipient>
+        <smev:Service>
+          <smev:Mnemonic>#SERVICE_MNEMONIC#</smev:Mnemonic>
+          <smev:Version>#SERVICE_VERSION#</smev:Version>
+        </smev:Service>
+        <smev:TypeCode>GSRV</smev:TypeCode>
+        <smev:Status>REQUEST</smev:Status>
+        <smev:Date>#DATE#</smev:Date>
+        <smev:ExchangeType>1</smev:ExchangeType>
+        <smev:ServiceCode>#SERVICE_CODE#</smev:ServiceCode>
+        <smev:CaseNumber>#CASE_NUM#</smev:CaseNumber>
+	    <smev:TestMsg>Test</smev:TestMsg>
+      </smev:Message>
+      <smev:MessageData>
+        <smev:AppData>
+          <soc:regData>
+            <soc:SpravId>#SPRAVID#</soc:SpravId>
+          </soc:regData>
+          <soc:userData>
+            <soc:lastName>ФамилияЗаявителя</soc:lastName>
+            <soc:firstName>ИмяЗаявителя</soc:firstName>
+            <soc:middleName>ОтчествоЗаявителя</soc:middleName>
+            <soc:birthDate>1971-01-11</soc:birthDate>
+            <soc:snils>111-111-111 11</soc:snils>
+            <soc:email>zayav@mail.ru</soc:email>
+            <soc:mphone>8(111)111-11-11</soc:mphone>
+            <soc:hphone>11-11-11</soc:hphone>
+          </soc:userData>
+          <soc:userDocument>
+            <soc:type>1</soc:type>
+            <soc:series>1111</soc:series>
+            <soc:number>121212</soc:number>
+            <soc:issuedBy>Тестовый ОВД</soc:issuedBy>
+            <soc:issueDate>2011-01-01</soc:issueDate>
+          </soc:userDocument>
+          <soc:declarentData>
+            <soc:lastName>ФамилияПредставителя</soc:lastName>
+            <soc:firstName>ИмяПредставителя</soc:firstName>
+            <soc:middleName>ОтчествоПредставителя</soc:middleName>
+            <soc:birthDate>1982-02-12</soc:birthDate>
+            <soc:snils>222-222-222 22</soc:snils>
+            <soc:email>predstavitel@mail.ru</soc:email>
+            <soc:mphone>8(222)222-22-22</soc:mphone>
+            <soc:hphone>22-22-22</soc:hphone>
+            <soc:info>ОснованиеДляПредставительства</soc:info>
+          </soc:declarentData>
+          <soc:declarentDocument>
+            <soc:type>1</soc:type>
+            <soc:series>2222</soc:series>
+            <soc:number>232323</soc:number>
+            <soc:issuedBy>УВД Тестовый</soc:issuedBy>
+            <soc:issueDate>2012-02-02</soc:issueDate>
+          </soc:declarentDocument>
+          <soc:declarentAddress>
+            <soc:townKladrCode>51004000005</soc:townKladrCode>
+            <soc:town>Ревда пгт</soc:town>
+            <soc:streetKladrCode>510040000050008</soc:streetKladrCode>
+            <soc:street>Кузина ул</soc:street>
+            <soc:house>10</soc:house>
+            <soc:building>11</soc:building>
+            <soc:apartment>12</soc:apartment>
+            <soc:index>184580</soc:index>
+          </soc:declarentAddress>
+          <soc:childData>
+            <soc:lastName>ФамилияРебенка</soc:lastName>
+            <soc:firstName>ИмяРебенка</soc:firstName>
+            <soc:middleName>ОтчествоРебенка</soc:middleName>
+            <soc:birthDate>2003-03-03</soc:birthDate>
+            <soc:snils>333-333-333 33</soc:snils>
+          </soc:childData>
+          <soc:childDocument>
+            <soc:type>3</soc:type>
+            <soc:series>I-АМ</soc:series>
+            <soc:number>343434</soc:number>
+            <soc:issuedBy>Тестовый ЗАГС</soc:issuedBy>
+            <soc:issueDate>2003-03-13</soc:issueDate>
+          </soc:childDocument>
+          <soc:regAddress>
+            <soc:townKladrCode>51004000005</soc:townKladrCode>
+            <soc:town>Ревда пгт</soc:town>
+            <soc:streetKladrCode>510040000050005</soc:streetKladrCode>
+            <soc:street>Заводская ул</soc:street>
+            <soc:house>1</soc:house>
+            <soc:building>2</soc:building>
+            <soc:apartment>3</soc:apartment>
+            <soc:index>184580</soc:index>
+          </soc:regAddress>
+          <soc:tempAddress>
+            <soc:townKladrCode>51004000005</soc:townKladrCode>
+            <soc:town>Ревда пгт</soc:town>
+            <soc:streetKladrCode>510040000050006</soc:streetKladrCode>
+            <soc:street>Заозерная ул</soc:street>
+            <soc:house>4</soc:house>
+            <soc:building>5</soc:building>
+            <soc:apartment>6</soc:apartment>
+            <soc:index>184580</soc:index>
+          </soc:tempAddress>
+          <soc:livingAddress>
+            <soc:townKladrCode>51004000005</soc:townKladrCode>
+            <soc:town>Ревда пгт</soc:town>
+            <soc:streetKladrCode>510040000050007</soc:streetKladrCode>
+            <soc:street>Комсомольская ул</soc:street>
+            <soc:house>7</soc:house>
+            <soc:building>8</soc:building>
+            <soc:apartment>9</soc:apartment>
+            <soc:index>184580</soc:index>
+          </soc:livingAddress>
+          <soc:payment>
+            <soc:method>1</soc:method>
+            <soc:addrType>1</soc:addrType>
+          </soc:payment>
+          <soc:postAddress>
+            <soc:townKladrCode>51004000005</soc:townKladrCode>
+            <soc:town>Ревда пгт</soc:town>
+            <soc:streetKladrCode>510040000050006</soc:streetKladrCode>
+            <soc:street>Заозерная ул</soc:street>
+            <soc:house>4</soc:house>
+            <soc:building>5</soc:building>
+            <soc:apartment>6</soc:apartment>
+            <soc:index>184580</soc:index>
+            <soc:bik></soc:bik>
+            <soc:bankName></soc:bankName>
+            <soc:account></soc:account>
+            <soc:numberKard></soc:numberKard>
+          </soc:postAddress>
+          <soc:CustomControlsValue>
+            <Value ValueName="disabilityGroup">2</Value>
+            <Value ValueName="applicationSubject.subjType">tsr</Value>
+            <Value ValueName="applicationSubject.subjName">Протез ноги</Value>
+            <Value ValueName="applicationSubject.worksType">1</Value>
+            <Value ValueName="additionalInfo.height">170</Value>
+            <Value ValueName="additionalInfo.weight">80</Value>
+            <Value ValueName="additionalInfo.leftSize">39</Value>
+            <Value ValueName="additionalInfo.rightSize" />
+            <Value ValueName="additionalInfo.waistSize" />
+          </soc:CustomControlsValue>
+        </smev:AppData>
+        <smev:AppDocument>
+          <smev:RequestCode>f4a44f93-71c7-42ef-9c0a-25cdec41b782</smev:RequestCode>
+          <smev:BinaryData>UEsDBBQAAAAIANeKYkDdwaZ/CgAAAAgAAAAFAAAAMi50eHRLz89PUUiqTAUAUEsDBBQAAAAIAMBBa0C8BokwpQAAAGYCAAAsAAAAcmVxX2FiYWM0Y2JjLWUwYjItNGI0MS05ZGY5LTc5MjM2ZGNjNjY4Mi54bWyVkk8LwjAMxe+C32H07rJ58pB1iB7Fg+gHqGuUwvqHrZP57dUKgiiszekl8MuDl2A96ja7UdcraypW5gXLyDRWKnOt2OAvixWrOUrhBZ/PsonCtXOtIrm1zaDJ+D6C+cdFYgHdWEkfrkT46hP27IUmvsz96BGCTmBPhx0PnggvmeI66DN1vHh6vlUCe7w74p5GD64VyiCEQWTikB75DzN9XoTwOQ9QSwECMwAUAAAACADXimJA3cGmfwoAAAAIAAAABQAAAAAAAAAAACAAAAAAAAAAMi50eHRQSwECMwAUAAAACADAQWtAvAaJMKUAAABmAgAALAAAAAAAAAAAACAAAAAtAAAAcmVxX2FiYWM0Y2JjLWUwYjItNGI0MS05ZGY5LTc5MjM2ZGNjNjY4Mi54bWxQSwUGAAAAAAIAAgCNAAAAHAEAAAAA</smev:BinaryData>
+        </smev:AppDocument>
+      </smev:MessageData>
+    </soc:SetRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

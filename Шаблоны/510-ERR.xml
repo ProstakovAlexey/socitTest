@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:smev="http://smev.gosuslugi.ru/rev120315" xmlns:soc="http://socit.ru" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <soapenv:Body wsu:Id="body">
+    <soc:queryLongServicePension>
+      <smev:Message>
+        <smev:Sender>
+          <smev:Code>#SND_CODE#</smev:Code>
+          <smev:Name>#SND_NAME#</smev:Name>
+        </smev:Sender>
+        <smev:Recipient>
+          <smev:Code>#SND_CODE#</smev:Code>
+          <smev:Name>#SND_NAME#</smev:Name>
+        </smev:Recipient>
+        <smev:ServiceName>TestMnemonic</smev:ServiceName>
+        <smev:TypeCode>GSRV</smev:TypeCode>
+        <smev:Status>REQUEST</smev:Status>
+        <smev:Date>#DATE#</smev:Date>
+        <smev:ExchangeType>2</smev:ExchangeType>
+        <smev:TestMsg>Test</smev:TestMsg>
+        <smev:OKTMO>#OKTMO#</smev:OKTMO>
+      </smev:Message>
+      <smev:MessageData>
+        <smev:AppData>
+          <DataOnTheCitizen>
+            <lastName>Пряхина</lastName>
+            <firstName>Галина</firstName>
+            <middleName>Васильевна</middleName>
+            <birthdate>18.14.1962</birthdate>
+            <SNILS>888-888-888 99</SNILS>
+          </DataOnTheCitizen>
+          <Residence>
+            <region>Тульская область</region>
+            <area/>
+            <city>Д.КАРПОВСКОЕ</city>
+            <locality/>
+            <street>Ул.Ярославская</street>
+            <house>15</house>
+            <corps/>
+            <flat>85</flat>
+          </Residence>
+        </smev:AppData>
+      </smev:MessageData>
+    </soc:queryLongServicePension>
+  </soapenv:Body>
+</soapenv:Envelope>
