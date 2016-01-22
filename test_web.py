@@ -1,4 +1,5 @@
-# coding=utf8
+#!/usr/bin/python3.4
+# -*- coding: utf-8 -*-
 __author__ = 'Prostakov Alexey'
 """
 Описание

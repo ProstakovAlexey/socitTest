@@ -127,11 +127,16 @@ def error_guid_409(IS):
     else:
         # не пустой, анализируем его
         for key in good_error2.keys():
-            bad = parseString(result).getElementsByTagName(key)[0].firstChild.nodeValue
-        if good_error2[key] != bad:
-            print ("Образец: Ключ=%s, значение=%s" % (key, good_error2[key]))
-            print ("Получено: Ключ=%s, значение=%s" % (key, bad))
-            error += 1
+            try:
+                bad = parseString(result).getElementsByTagName(key)[0].firstChild.nodeValue
+            except:
+                print('Ошибка при получении примеры с ошибкой в GUID')
+                error += 1
+            else:
+                if good_error2[key] != bad:
+                    print ("Образец: Ключ=%s, значение=%s" % (key, good_error2[key]))
+                    print ("Получено: Ключ=%s, значение=%s" % (key, bad))
+                    error += 1
     if error > 0:
         print ("!!!  Тест Error GUID. Ошибка!")
     else:
