@@ -44,7 +44,9 @@ def test_web(IS):
         driver.find_element_by_id("mr_SMEV_OUTPUT").click()
         driver.find_element_by_css_selector("#SMEV_REQUEST77_FirstPage > img").click()
         driver.find_element_by_id("lbAction_SMEV_REQUEST").click()
-        driver.find_element_by_id("listact77_SMEV_REQUEST77_2").click()
+        # вместо останова делаю просмотр
+        driver.find_element_by_id("listact77_SMEV_REQUEST77_3").click()
+        driver.find_element_by_css_selector("#popupLBClose > img").click()
         driver.find_element_by_css_selector("#lbExit > span.atn-btn-label").click()
         driver.find_element_by_css_selector("img").click()
         runTime.append(time.time())
@@ -57,7 +59,9 @@ def test_web(IS):
         driver.find_element_by_css_selector("span.atn-btn-label").click()
         driver.find_element_by_id("mr_SMEV_OUTPUT").click()
         driver.find_element_by_css_selector("#lbAction_SMEV_REQUEST > span.atn-btn-label").click()
-        driver.find_element_by_id("listact77_SMEV_REQUEST77_0").click()
+        # вместо запуска делаю просмотр
+        driver.find_element_by_id("listact77_SMEV_REQUEST77_3").click()
+        driver.find_element_by_css_selector("#popupLBClose > img").click()
         runTime.append(time.time())
 
         # получение скриншота
@@ -127,7 +131,9 @@ def test_web(IS):
         driver.find_element_by_id("ml_SMEV").click()
         driver.find_element_by_id("mr_SMEV_OUTPUT").click()
         driver.find_element_by_css_selector("#lbAction_SMEV_REQUEST > span.atn-btn-label").click()
-        driver.find_element_by_id("listact77_SMEV_REQUEST77_2").click()
+        # вместо останова - просмотр
+        driver.find_element_by_id("listact77_SMEV_REQUEST77_3").click()
+        driver.find_element_by_css_selector("#popupLBClose > img").click()
         driver.find_element_by_css_selector("#lbExit > span.atn-btn-label").click()
         driver.find_element_by_css_selector("img").click()
         runTime.append(time.time())
