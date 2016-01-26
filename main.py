@@ -11,6 +11,7 @@ import test_1003
 import test_1004
 import test_1005
 import test_1007
+import test_1009
 import test_web
 from pymongo import MongoClient
 import sys
@@ -84,6 +85,7 @@ def readConfig(file="config.ini"):
                 IS['1004'] = i.get('1004', fallback='no')
                 IS['1005'] = i.get('1005', fallback='no')
                 IS['1007'] = i.get('1007', fallback='no')
+                IS['1009'] = i.get('1009', fallback='no')
                 IS['web'] = i.get('web', fallback='no')
                 IS['protocol'] = i.get('protocol', fallback='no')
                 ISList.append(IS)
@@ -221,6 +223,14 @@ if __name__ == '__main__':
             err += post['errors']
             printTest(post)
             collection.insert_one(post)
+            print(post)
+        # Тест для 1009
+        if IS['1009'] == 'yes':
+            print()
+            post = test_1009.test_1009(IS)
+            err += post['errors']
+            printTest(post)
+            #collection.insert_one(post)
             print(post)
         # тест для веб-интерфейса
         if IS['web'] == 'yes':

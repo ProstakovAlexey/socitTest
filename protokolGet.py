@@ -141,9 +141,9 @@ if __name__ == '__main__':
                 logging.error('Получение протокола для %s не выполнено, возникли ошибки' % post['comment'])
             else:
                 logging.info('Получение протокола для %s выполнено успешно' % post['comment'])
-                logging.debug('Для записи подготовлено: %s' % post)                
-                collProt.insert_one(post))
-		logging.debug('Было записано c ID=%s' % post['_id'])
+                logging.debug('Для записи подготовлено: %s' % post)
+                collProt.insert_one(post)
+                logging.debug('Было записано c ID=%s' % post['_id'])
     # закрывает соединения с БД
     client.close()
     exit(0)

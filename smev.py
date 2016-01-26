@@ -33,11 +33,13 @@ def getVersion(IS):
     """
     err = None
     version = 0
+    #addr = 'http://%s:%s%sexport.asmx?wsdl' % (IS['adr'], IS['port'], IS['url'])
+    addr = 'http://%s:%s%sSMEV/webservice/DBAgent.asmx?wsdl' % (IS['adr'], IS['port'], IS['url'])
     try:
-        cl = osa.Client('http://%s:%s%sSMEV/webservice/DBAgent.asmx?wsdl' % (IS['adr'], IS['port'], IS['url']))
+        cl = osa.Client(addr)
         version = cl.service.GetVersion()
     except:
-        err = 'При определении версии ТИ возникли ошибки.'
+        err = 'При определении версии ТИ возникли ошибки. Адрес: %s' % addr
     return version, err
 
 
@@ -135,8 +137,9 @@ def change(s, IS):
         s = s.replace(st, IS[key])
     s = s.replace('#DATE#', get_smev_date())
     # добавить подпись
-    s = s.replace(r'<soap:Body wsu:Id="body">', sig)
-    s = s.replace(r'<soapenv:Body wsu:Id="body">', sigEnv)
+    if s.find(r':Header') == -1:
+        s = s.replace(r'<soap:Body wsu:Id="body">', sig)
+        s = s.replace(r'<soapenv:Body wsu:Id="body">', sigEnv)
     return s
 
 
