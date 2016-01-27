@@ -238,23 +238,23 @@ if __name__ == '__main__':
             post, err1 = test_web.test_web(IS)
             if  err1 == 0:
                 logging.info("Выполнено успешно за %s" % post['data']['Итого'])
+                printTest(post)
             else:
                 print(" Возникли ошибки!!!")
                 err += err1
-                logging.error('Тесты веб-интерфейса для %s выполненны с ошибками'
-                    % post['comment'])
+                logging.error('Тесты веб-интерфейса для %s выполненны с ошибками'% IS['comment'])
+                logging.debug('Строка для записи в БД: %s' % post)
             # печать и запись
             #print(post)
-            printTest(post)
             collection.insert_one(post)
 
         print ('--------------')
         print ('кол-во ошибок:', err)
         if err:
             logging.error('Тесты для %s выполненны с общим кол-во ошибок: %s'
-                % (post['comment'],err))
+                % (IS['comment'],err))
         else:
-            logging.info('Тесты для %s выполненны без ошибок.' % post['comment'])
+            logging.info('Тесты для %s выполненны без ошибок.' % IS['comment'])
     # закрывает соединения с БД
     client.close()
     exit(0)
