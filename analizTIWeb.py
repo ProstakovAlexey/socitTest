@@ -1,4 +1,5 @@
-# coding=utf8
+#!/usr/bin/python3.4
+# -*- coding: utf-8 -*-
 __author__ = 'Prostakov Alexey'
 """
 Описание
@@ -47,13 +48,13 @@ if __name__ == '__main__':
                 "Просмотр заявлений ПГУ", "Просмотр протокола ошибок", "Просмотр протокола событий",
                 "Просмотр входящих СМЭВ запросов", "Остановка очереди запросов", "Итого")
     # Выполняется если файл запускается как программа
-    base_url = "http://192.168.0.61/SocPortal"
+    base_url = "http://172.21.245.71/SocPortal"
     client = MongoClient('192.168.0.89', 27017)
     db = client['test']
     collection = db['Tests']
     versions = collection.distinct("version", {"name": "Тестирование веб-интерфейса ТИ"})
-    print('В БД есть результаты по тестированию ТИ на ТУ для версий:', versions)
-    """
+    print('В БД есть результаты по тестированию ТИ на Туле для версий:', versions)
+    
     # файл для данных для графиков
     fp = open('Графики/data.txt', 'w')
 
@@ -62,7 +63,7 @@ if __name__ == '__main__':
         y_data = list()
         print('\nСредние результаты для версии', version)
         print('****************************************')
-        res = collection.find({"name": "Тестирование веб-интерфейса ТИ", "address":base_url, "errors": 0, "version": version})
+        res = collection.find({"name": "Тестирование веб-интерфейса ТИ", "comment": "Тула", "errors": 0, "version": version})
         # заполнение пустого словаря для среднего
         avr = dict()
         for pole in data:
@@ -78,9 +79,10 @@ if __name__ == '__main__':
         st = version[version.rfind('.')+1:]
         # печать
         for key in data:
-            avr[key] = avr[key]/j
-            print(key, avr[key])
-            st += " " + str(avr[key])
+            if j>0:
+            	avr[key] = avr[key]/j
+            	print(key, avr[key])
+            	st += " " + str(avr[key])
         # сохранение в файл, для постороения по нему графика gnuplot
         print(" ".join(data), file=fp)
         print(st, file=fp)
@@ -90,6 +92,7 @@ if __name__ == '__main__':
     p = subprocess.Popen("gnuplot Графики/webTI.gnuplot", shell=True)
     # ждем завершения
     p.wait()
+    
     """
     # графики для Тулы
     # веб-интерфейс
@@ -121,5 +124,6 @@ if __name__ == '__main__':
     p = subprocess.Popen("gnuplot Графики/webSpeed.plt", shell=True)
     # ждем завершения
     p.wait()
+    """
     client.close()
     exit(0)

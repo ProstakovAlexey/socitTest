@@ -122,6 +122,7 @@ def service_1005(req, IS, name):
 
 def test_1005(IS):
     err = 0
+    terr = 0
     print("Получение документации 1005-сервиса")
     print("*******************************************")
     # Загрузка настроек из конфигурационного файла
@@ -139,7 +140,7 @@ def test_1005(IS):
     errMsg = smev.get_wsdl(IS, url)
     if errMsg:
         print(errMsg)
-        err += 1
+        terr += 1
     # Перебираем всех тестовых родителей
     shablon = open('Шаблоны/Request_1005.xml', mode='r', encoding='utf-8').read()
     for parent in Parents:
@@ -161,7 +162,8 @@ def test_1005(IS):
                 print('****************************')
         else:
             print("ОШИБКА! Ответ не получен")
-            err +=1
+            err =1
+        terr += err
     post = {
             "date": datetime.datetime.now(),
             "name": "Тестирование 1005 сервиса",
@@ -171,7 +173,7 @@ def test_1005(IS):
                 {
                     "Итого": time.time() - start
                 },
-            "errors": err,
+            "errors": terr,
             "address": 'http://%s:%s%sSMEV/Transport.ashx' % (IS['adr'], IS['port'], IS['url'])
         }
     print("Все запросы и ответы сохранены в папке Результаты")

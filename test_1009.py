@@ -79,6 +79,7 @@ def service_1009(req, IS, name='1009'):
 
 def test_1009(IS):
     err = 0
+    terr = 0
     # Выполняется если файл запускается как программа
     print("Получение документации 1009-сервиса (Предоставления путевки)")
     print("*******************************************")
@@ -104,7 +105,7 @@ def test_1009(IS):
             err = smev.check(res, parent['test'], parent['md5'])
             if err > 0:
                 print('Ошибка!!! Не совпадает контрольная суммму блока smev:MessageData.')
-
+        terr += err
     post = {
             "date": datetime.datetime.now(),
             "name": "Тестирование 1009 сервиса",
@@ -114,7 +115,7 @@ def test_1009(IS):
                 {
                     "Итого": time.time() - start
                 },
-            "errors": err,
+            "errors": terr,
             "address": 'http://%s:%s%sSMEV/permit256.ashx' % (IS['adr'], IS['port'], IS['url'])
         }
     return post

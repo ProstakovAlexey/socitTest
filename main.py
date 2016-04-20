@@ -159,6 +159,7 @@ if __name__ == '__main__':
         IS['version'], errMsg = smev.getVersion(IS)
         if errMsg :
             logging.error(errMsg)
+
             continue
         # тест для 373
         if IS['373'] == 'yes':
@@ -175,7 +176,7 @@ if __name__ == '__main__':
             err += post['errors']
             printTest(post)
             print(post)
-            collection.insert_one(post)
+            #collection.insert_one(post)
         # тест для 510
         if IS['510'] == 'yes':
             print()
@@ -230,7 +231,7 @@ if __name__ == '__main__':
             post = test_1009.test_1009(IS)
             err += post['errors']
             printTest(post)
-            #collection.insert_one(post)
+            collection.insert_one(post)
             print(post)
         # тест для веб-интерфейса
         if IS['web'] == 'yes':

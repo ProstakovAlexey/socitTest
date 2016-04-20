@@ -121,6 +121,11 @@ def getData(IS, date=None):
                 if old is None:
                     row[0] = row[0].replace(u'\ufeff', '')
                     old = datetime.datetime.strptime(row[0], dtf1)
+                try:
+                    i = len(row[2])
+                except IndexError:
+                    print('Строка %s повреждена' % row)
+                    row = (" ", " ", " ")
                 # ищем только строки с нужным адаптером
                 if row[2].find(req)>-1 :
                     # это запрос

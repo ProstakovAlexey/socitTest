@@ -9,6 +9,7 @@ import configparser
 import smev
 import logging
 import protokol
+import datetime
 
 """
 Описание
@@ -130,6 +131,7 @@ if __name__ == '__main__':
         logging.info('Обрабатываем ИС: %s' % IS['snd_name'])
         # получаем версии ПО
         IS['version'], errMsg = smev.getVersion(IS)
+
         if errMsg :
             logging.error(errMsg)
             continue
@@ -142,7 +144,7 @@ if __name__ == '__main__':
             else:
                 logging.info('Получение протокола для %s выполнено успешно' % post['comment'])
                 logging.debug('Для записи подготовлено: %s' % post)
-                collProt.insert_one(post)
+                #collProt.insert_one(post)
                 logging.debug('Было записано c ID=%s' % post['_id'])
     # закрывает соединения с БД
     client.close()
